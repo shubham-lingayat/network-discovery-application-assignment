@@ -59,7 +59,8 @@ function runNmap(target, scanType) {
   return new Promise((resolve, reject) => {
     const flags = SCAN_PROFILES[scanType] || SCAN_PROFILES.standard;
     // -oG - → grepable output to stdout; no DNS resolve (-n) for speed
-    const cmd = `nmap ${flags} -oG - ${target}`;
+    const nmapPath = process.platform === 'win32' ? '"C:\\Program Files (x86)\\Nmap\\nmap.exe"' : 'nmap';
+    const cmd = `${nmapPath} ${flags} -oG - ${target}`;
 
     exec(cmd, { timeout: 300_000 }, (err, stdout, stderr) => {
       if (err && !stdout) {

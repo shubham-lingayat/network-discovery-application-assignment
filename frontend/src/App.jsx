@@ -28,7 +28,7 @@ export default function App() {
         />
 
         <div className="sidebar-footer">
-          <div className="tech-badge">MERN · nmap · MongoDB</div>
+          <div className="tech-badge">MERN Stack</div>
         </div>
       </aside>
 
